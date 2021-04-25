@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JOBLESSITO</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+
+    <meta name="importmap-type" content="systemjs-importmap"/>
+
+    <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@17.0.1/umd/react.development.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.development.js",
+        "vue": "https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js",
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.x/dist/vue-router.min.js",
+        "@angular/core": "https://cdn.jsdelivr.net/npm/@esm-bundle/angular__core@11.1.1/system/es2015/ivy/angular-core.min.js",
+        "@angular/common": "https://cdn.jsdelivr.net/npm/@esm-bundle/angular__common@11.1.1/system/es2015/ivy/angular-common.min.js",
+        "@angular/router": "https://cdn.jsdelivr.net/npm/@esm-bundle/angular__router@11.1.1/system/es2015/ivy/angular-router.min.js",
+        "@angular/platform-browser": "https://cdn.jsdelivr.net/npm/@esm-bundle/angular__platform-browser@11.1.1/system/es2015/ivy/angular-platform-browser.min.js",
+        "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.6.3-fix.0/system/es2015/rxjs.min.js",
+        "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.6.3-fix.0/system/es2015/rxjs-operators.min.js"
+      }
+    }
+
+    </script>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js" as="script"
+          crossorigin="anonymous">
+
+    <% if (isLocal) { %>
+        <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@joblesschool/root-config": "//localhost:9000/joblesschool-root-config.js",
+        "@joblesschool/seeker-service": "//localhost:9001/main.js",
+        "@joblesschool/digger-service": "//localhost:9002/joblesschool-digger-service.js",
+        "@joblesschool/navbar": "//localhost:9003/js/app.js"
+      }
+    }
+
+        </script>
+    <% } else { %>
+        <script type="systemjs-importmap">
+      {
+      "imports": {
+        "@joblesschool/root-config": "//localhost:9000/joblesschool-root-config.js",
+        "@joblesschool/seeker-service": "//localhost:9001/main.js",
+        "@joblesschool/digger-service": "//localhost:9002/joblesschool-digger-service.js",
+        "@joblesschool/navbar": "//localhost:9003/js/app.js"
+        }
+      }
+
+        </script>
+    <% } %>
+
+    <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+    <% if (isLocal) { %>
+        <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <% } else { %>
+        <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <% } %>
+
+    <template id="single-spa-layout">
+        <single-spa-router>
+            <nav>
+                <application name="@joblesschool/navbar"></application>
+            </nav>
+            <main>
+                <route default>
+                    <div>404 -Page not found</div>
+                </route>
+                <redirect from="/" to="seeker"></redirect>
+                <route path="seeker">
+                    <application name="@joblesschool/seeker-service"></application>
+                </route>
+                <route path="digger">
+                    <application name="@joblesschool/digger-service"></application>
+                </route>
+            </main>
+        </single-spa-router>
+    </template>
+</head>
+<body>
+<script>
+    System.import('@joblesschool/root-config');
+</script>
+<import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
