@@ -39,7 +39,8 @@
         "@joblesschool/root-config": "//localhost:9000/joblesschool-root-config.js",
         "@joblesschool/seeker-service": "//localhost:9001/main.js",
         "@joblesschool/digger-service": "//localhost:9002/joblesschool-digger-service.js",
-        "@joblesschool/navbar": "//localhost:9003/js/app.js"
+        "@joblesschool/navbar": "//localhost:9003/js/app.js",
+        "@joblesschool/404": "//localhost:9005/joblesschool-404.js"
       }
     }
 
@@ -51,10 +52,10 @@
         "@joblesschool/root-config": "//localhost:9000/joblesschool-root-config.js",
         "@joblesschool/seeker-service": "//localhost:9001/main.js",
         "@joblesschool/digger-service": "//localhost:9002/joblesschool-digger-service.js",
-        "@joblesschool/navbar": "//localhost:9003/js/app.js"
+        "@joblesschool/navbar": "//localhost:9003/js/app.js",
+        "@joblesschool/404": "//localhost:9005/joblesschool-404.js"
         }
       }
-
         </script>
     <% } %>
 
@@ -76,7 +77,7 @@
             </nav>
             <main>
                 <route default>
-                    <div>404 -Page not found</div>
+                    <application name="@joblesschool/404"></application>
                 </route>
                 <redirect from="/" to="seeker"></redirect>
                 <route path="seeker">
