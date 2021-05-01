@@ -1,4 +1,22 @@
 JOBLESSITO UI
 =============
 
-Micro-frontend based web app for the unemployed.
+Micro-frontend based web app powered by single-spa.
+
+
+- 404:  Vanilla.js
+- digger-service: React.js
+- navbar: Vue.js
+- seeker-service: Angular
+
+
+More about:
+- micro-frontends: https://micro-frontends.org/
+- single-spa: https://single-spa.js.org/
+- system.js:  https://github.com/systemjs/systemjs
+
+
+Comming soon:
+- Deployment to Heroku/Netlify
+- sidebar 
+- browser based inter-app communication
