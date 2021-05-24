@@ -61,6 +61,7 @@
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
     "express": "^4.17.1",
+    "cors": "^2.8.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
