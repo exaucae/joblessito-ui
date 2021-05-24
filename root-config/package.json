@@ -1,7 +1,8 @@
 {
   "name": "root-config",
   "scripts": {
-    "start": "webpack serve --mode=development --env isLocal",
+    "start": "webpack serve --mode=development",
+    "start:local": "webpack serve --mode=development --env isLocal",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write \"./**\"",
