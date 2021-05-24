@@ -1,7 +1,7 @@
 {
   "name": "root-config",
   "scripts": {
-    "start": "webpack serve --mode=development",
+    "start": "node server.js",
     "start:local": "webpack serve --mode=development --env isLocal",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
@@ -31,11 +31,11 @@
     "webpack-config-single-spa-ts": "^2.0.0",
     "webpack-dev-server": "^4.0.0-beta.0",
     "webpack-merge": "^5.5.0"
-
   },
   "dependencies": {
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
+    "express": "^4.17.1",
     "html-webpack-plugin": "^5.2.0",
     "single-spa": "^5.8.2",
     "single-spa-layout": "^1.4.0"

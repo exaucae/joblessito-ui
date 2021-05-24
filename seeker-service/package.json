@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 9001  --live-reload false",
-    "build": "ng build",
+    "start": "node server.js",
+    "start:local": "ng serve --port 9001  --live-reload false",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -26,6 +27,7 @@
     "single-spa-angular": "^4.9.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3",
+    "express": "^4.17.1",
     "ngx-toastr": "^13.2.1"
   },
   "devDependencies": {

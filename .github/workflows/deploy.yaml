@@ -1,0 +1,52 @@
+name:  micro-frontends deployment
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Deploy 404 to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_404_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: "404"
+      - name: Deploy navbar to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_NAVBAR_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: "navbar"
+      - name: Deploy seeker-service  to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_SEEKER_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: "seeker-service"
+
+      - name: Deploy digger-service  to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_DIGGER_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: "digger-service"
+
+      - name: Deploy root-config  to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_ROOT_CONFIG_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: "root-config"
+
+
