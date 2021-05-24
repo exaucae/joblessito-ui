@@ -2,7 +2,7 @@ JOBLESSITO UI
 =============
 
 Micro-frontend based web app powered by single-spa.
-
+Live app runs here https://joblesschool-root-config.herokuapp.com
 
 - 404:  Vanilla.js
 - digger-service: React.js
@@ -17,6 +17,5 @@ More about:
 
 
 Comming soon:
-- Deployment to Heroku/Netlify
 - sidebar 
 - browser based inter-app communication
